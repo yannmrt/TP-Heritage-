@@ -46,7 +46,7 @@ int dd::resetTotalScore()
 {
 	// On remet la variable totalScore à 0
 	int totalScore = 0;
-	//this->totalScore = totalScore;
+	this->totalScore = totalScore;
 	return totalScore;
 }
 
