@@ -362,6 +362,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>showHistorique</sender>
+   <signal>clicked()</signal>
+   <receiver>LancerDeClass</receiver>
+   <slot>showHistoriqueClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>465</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>293</x>
+     <y>209</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>startDeButtonClicked()</slot>
@@ -373,5 +389,6 @@
   <slot>startDeHistoButtonClicked()</slot>
   <slot>showValueDeHistoButtonClicked()</slot>
   <slot>sendNumberJetClicked()</slot>
+  <slot>showHistoriqueClicked()</slot>
  </slots>
 </ui>

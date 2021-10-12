@@ -139,3 +139,9 @@ void LancerDe::sendNumberJetClicked()
 
 }
 
+void LancerDe::showHistoriqueClicked()
+{
+	// ok
+	//ui.tableHistorique->setItem(1, 1, new QTableWidget(dh->getResult());
+}
+

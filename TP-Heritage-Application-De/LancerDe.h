@@ -29,4 +29,5 @@ public slots:
 	void startDeHistoButtonClicked();
 	void showValueDeHistoButtonClicked();
 	void sendNumberJetClicked();
+	void showHistoriqueClicked();
 };
