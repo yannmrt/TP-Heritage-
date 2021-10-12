@@ -89,6 +89,7 @@
     <QtUic Include="LancerDe.ui" />
     <QtMoc Include="LancerDe.h" />
     <ClCompile Include="dd.cpp" />
+    <ClCompile Include="dehisto.cpp" />
     <ClCompile Include="LancerDe.cpp">
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
@@ -99,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dd.h" />
+    <ClInclude Include="dehisto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
