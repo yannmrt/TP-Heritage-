@@ -5,9 +5,8 @@ LancerDe::LancerDe(QWidget *parent)
 {
     ui.setupUi(this);
 	// On instancie la class dd
-	dd de;
-
-	dehisto deh;
+	de = new dd();
+	dh = new dehisto();
 
 	// On vide le score total
 	resetTotalScoreButtonClicked();
@@ -16,14 +15,18 @@ LancerDe::LancerDe(QWidget *parent)
 	ui.showTotalScoreButton->setVisible(false);
 	ui.resetTotalScoreButton->setVisible(false);
 	ui.showTextTotalScoreValue->setVisible(false);
-	ui.showNumberJet->setVisible(false);
-	ui.showTextNumberJet->setVisible(false);
+	ui.sendNumberJet->setVisible(false);
+	ui.numberJet->setVisible(false);
 	ui.showHistorique->setVisible(false);
 	ui.tableHistorique->setVisible(false);
 
 	ui.startDeButton->setVisible(false);
 	ui.showValueDeButton->setVisible(false);
 	ui.showTextDeValue->setVisible(false);
+
+	ui.startDeHistoButton->setVisible(false);
+	ui.showTextDeHistoValue->setVisible(false);
+	ui.showValueDeHistoButton->setVisible(false);
 }
 
 void LancerDe::startDeButtonClicked()
@@ -62,6 +65,20 @@ void LancerDe::resetTotalScoreButtonClicked()
 	ui.showTextTotalScoreValue->insertPlainText("0");
 }
 
+void LancerDe::startDeHistoButtonClicked()
+{
+	// On lance la fonction d'envoi du jet
+	dh->jet();
+}
+
+void LancerDe::showValueDeHistoButtonClicked()
+{
+	QString result = QString::number(dh->getResult());;
+	// On clear la case et on insert le nouveau score total
+	ui.showTextDeHistoValue->clear();
+	ui.showTextDeHistoValue->insertPlainText(result);
+}
+
 void LancerDe::dehistoMenuButtonClicked()
 {
 	// On cache ce qui n'est pas nécessaire
@@ -69,24 +86,32 @@ void LancerDe::dehistoMenuButtonClicked()
 	ui.resetTotalScoreButton->setVisible(false);
 	ui.showTextTotalScoreValue->setVisible(false);
 
+	ui.startDeButton->setVisible(false);
+	ui.showValueDeButton->setVisible(false);
+	ui.showTextDeValue->setVisible(false);
+
 	// On affiche ce dont nous avons besoin
-	ui.showNumberJet->setVisible(true);
-	ui.showTextNumberJet->setVisible(true);
+	ui.sendNumberJet->setVisible(true);
+	ui.numberJet->setVisible(true);
 	ui.showHistorique->setVisible(true);
 	ui.tableHistorique->setVisible(true);
 
-	ui.startDeButton->setVisible(true);
-	ui.showValueDeButton->setVisible(true);
-	ui.showTextDeValue->setVisible(true);
+	ui.startDeHistoButton->setVisible(true);
+	ui.showTextDeHistoValue->setVisible(true);
+	ui.showValueDeHistoButton->setVisible(true);
+	
 }
 
 void LancerDe::deMenuButtonClicked()
 {
 	// On cache ce qui n'est pas nécessaire
-	ui.showNumberJet->setVisible(false);
-	ui.showTextNumberJet->setVisible(false);
+	ui.sendNumberJet->setVisible(false);
+	ui.numberJet->setVisible(false);
 	ui.showHistorique->setVisible(false);
 	ui.tableHistorique->setVisible(false);
+	ui.startDeHistoButton->setVisible(false);
+	ui.showTextDeHistoValue->setVisible(false);
+	ui.showValueDeHistoButton->setVisible(false);
 
 	// On affiche ce dont nous avons besoin
 	ui.showTotalScoreButton->setVisible(true);
@@ -99,12 +124,21 @@ void LancerDe::deMenuButtonClicked()
 
 }
 
-void LancerDe::showNumberJetButtonClicked()
+void LancerDe::sendNumberJetClicked()
 {
-	deh->jet();
+	QString nbrLancer = ui.numberJet->text();
+
+	int nbrFinal = nbrLancer.toInt();
+
+	if(nbrFinal == 1) {
+		dh->jet();
+	}
+	else if (nbrFinal > 7 || nbrFinal == 0 || nbrFinal == NULL) {
+		qDebug() << "Erreur";
+	}
+	else {
+		dh->jet(nbrFinal);
+	}
+
 }
 
-void LancerDe::showHistoriqueButtonClicked()
-{
-
-}

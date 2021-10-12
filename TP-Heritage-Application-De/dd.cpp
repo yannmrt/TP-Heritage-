@@ -6,9 +6,10 @@ dd::dd(int n)
 }
 
 dd::dd() {
-	// On génére le résultat
-	//int random = qrand() % 7;
-	//this->result = random;
+	// On définie les valeurs à 0
+	this->value = 0;
+	this->totalScore = 0;
+	this->result = 0;
 }
 
 int dd::LancerDe()

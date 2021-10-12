@@ -17,7 +17,7 @@ public:
 private:
 	Ui::LancerDeClass ui;
 	dd *de;
-	dehisto *deh;
+	dehisto *dh;
 
 public slots:
 	void startDeButtonClicked();
@@ -26,6 +26,7 @@ public slots:
 	void resetTotalScoreButtonClicked();
 	void dehistoMenuButtonClicked();
 	void deMenuButtonClicked();
-	void showNumberJetButtonClicked();
-	void showHistoriqueButtonClicked();
+	void startDeHistoButtonClicked();
+	void showValueDeHistoButtonClicked();
+	void sendNumberJetClicked();
 };

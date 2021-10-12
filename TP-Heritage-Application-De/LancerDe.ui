@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>595</width>
+    <width>587</width>
     <height>419</height>
    </rect>
   </property>
@@ -86,7 +86,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="showNumberJet">
+   <widget class="QPushButton" name="sendNumberJet">
     <property name="geometry">
      <rect>
       <x>180</x>
@@ -97,16 +97,6 @@
     </property>
     <property name="text">
      <string>Nombre de jet</string>
-    </property>
-   </widget>
-   <widget class="QPlainTextEdit" name="showTextNumberJet">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>290</y>
-      <width>171</width>
-      <height>61</height>
-     </rect>
     </property>
    </widget>
    <widget class="QTableWidget" name="tableHistorique">
@@ -132,13 +122,59 @@
      <string>Historique</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="startDeHistoButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>70</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Lancer Dé</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="showValueDeHistoButton">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>30</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Afficher valeur du dé</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="showTextDeHistoValue">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>70</y>
+      <width>171</width>
+      <height>61</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="numberJet">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>290</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>595</width>
+     <width>587</width>
      <height>21</height>
     </rect>
    </property>
@@ -278,6 +314,54 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>startDeHistoButton</sender>
+   <signal>clicked()</signal>
+   <receiver>LancerDeClass</receiver>
+   <slot>startDeHistoButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>133</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>297</x>
+     <y>209</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>showValueDeHistoButton</sender>
+   <signal>clicked()</signal>
+   <receiver>LancerDeClass</receiver>
+   <slot>showValueDeHistoButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>265</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>297</x>
+     <y>209</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sendNumberJet</sender>
+   <signal>clicked()</signal>
+   <receiver>LancerDeClass</receiver>
+   <slot>sendNumberJetClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>265</x>
+     <y>298</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>297</x>
+     <y>209</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>startDeButtonClicked()</slot>
@@ -286,5 +370,8 @@
   <slot>resetTotalScoreButtonClicked()</slot>
   <slot>dehistoMenuButtonClicked()</slot>
   <slot>deMenuButtonClicked()</slot>
+  <slot>startDeHistoButtonClicked()</slot>
+  <slot>showValueDeHistoButtonClicked()</slot>
+  <slot>sendNumberJetClicked()</slot>
  </slots>
 </ui>

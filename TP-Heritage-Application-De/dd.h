@@ -1,12 +1,13 @@
+#pragma once
 #include <qDebug>
 #include <stdlib.h>
 
 class dd
 {
 private:
-	int value = 0;
-	int totalScore = 0;
-	int result = 0;
+	int value;
+	int totalScore;
+	int result;
 
 public:
 	dd(int n);
