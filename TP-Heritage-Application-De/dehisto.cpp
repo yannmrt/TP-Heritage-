@@ -18,6 +18,7 @@ void dehisto::jet(int n)
 	{
 		//Tir de dé
 		this->LancerDe();
+
 		//Afficher chaque tir dans tableau
 		tab[i] = this->getResult();
 		qDebug() << tab[i];

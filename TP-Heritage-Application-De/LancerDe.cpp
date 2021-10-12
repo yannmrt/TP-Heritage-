@@ -133,10 +133,7 @@ void LancerDe::sendNumberJetClicked()
 	if(nbrFinal == 1) {
 		dh->jet();
 	}
-	else if (nbrFinal > 7 || nbrFinal == 0 || nbrFinal == NULL) {
-		qDebug() << "Erreur";
-	}
-	else {
+	else if (nbrFinal > 1) {
 		dh->jet(nbrFinal);
 	}
 
