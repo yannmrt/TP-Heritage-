@@ -39,7 +39,6 @@ void LancerDe::showValueDeButtonClicked()
 {
 	// On récupère le resultat du lancer de dé
 	QString result = QString::number(de->getResult());
-	//QString result = QString::number();
 
 	// On clear la case et on insert le nouveau resultat
 	ui.showTextDeValue->clear();

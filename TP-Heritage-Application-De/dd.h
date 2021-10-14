@@ -6,6 +6,10 @@
 
 class dd
 {
+
+friend void operator+=(int n, dd &dd);
+friend void operator<(int n, dd &dd);
+
 private:
 	int value;
 	int totalScore;
@@ -24,12 +28,8 @@ public:
 	dd();
 
 	dd operator++(int v);
-	dd operator=(int a);
-
-	dd operator<(int b);
-	dd operator+=(int c);
+	dd operator=(int n);
 
 	int getTotalScore();
 	int getResult();
 };
-

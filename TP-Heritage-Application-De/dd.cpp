@@ -11,36 +11,13 @@ dd::dd() {
 	this->totalScore = 0;
 }
 
-dd dd::operator++(int v)
-{
-	LancerDe();
-	return (*this);
-}
-
-dd dd::operator=(int a)
-{
-	resetTotalScore();
-	return (*this);
-}
-
-dd dd::operator<(int b)
-{
-	this->n = this->totalScore;
-	return (*this);
-}
-
-dd dd::operator+=(int c)
-{
-	this->n = this->result;
-	return (*this);
-}
-
 int dd::LancerDe()
 {
 	// On incorpore la valeur random dans le resultat
 	this->result = QRandomGenerator::global()->bounded(1, 7);
-	//n+=dd;
-	(*this)+= n;
+
+	// On met la valeur du dé dans n
+	result += (*this);
 
 	// On incorpore la valeur de ce lancer dans le score total
 	if (this->totalScore == 0) {
@@ -56,12 +33,12 @@ int dd::LancerDe()
 	return n;
 }
 
-
-
 int dd::getTotalScore()
 {
+	// On met le score total dans n
+	totalScore < (*this);
 	// On retourne le score total
-	return this->totalScore;
+	return this->n;
 }
 
 int dd::getResult()
@@ -78,3 +55,26 @@ int dd::resetTotalScore()
 }
 
 
+// OPERATEURS
+dd dd::operator++(int v)
+{
+	LancerDe();
+	return (*this);
+}
+
+// A VERIFIER
+dd dd::operator=(int n)
+{
+	resetTotalScore();
+	return (*this);
+}
+
+void operator+=(int n, dd & dd)
+{
+	dd.n = dd.result;
+}
+
+void operator<(int n, dd & dd)
+{
+	dd.n = dd.totalScore;
+}
