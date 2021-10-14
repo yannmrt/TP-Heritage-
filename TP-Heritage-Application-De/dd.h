@@ -16,6 +16,7 @@ private:
 
 	// Functions
 	int LancerDe();
+	int resetTotalScore();
 
 
 public:
@@ -25,8 +26,10 @@ public:
 	dd operator++(int v);
 	dd operator=(int a);
 
+	dd operator<(int b);
+	dd operator+=(int c);
+
 	int getTotalScore();
 	int getResult();
-	int resetTotalScore();
 };
 
