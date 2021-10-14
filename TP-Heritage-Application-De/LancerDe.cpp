@@ -129,6 +129,7 @@ void LancerDe::sendNumberJetClicked()
 	QString nbrLancer = ui.numberJet->text();
 
 	int nbrFinal = nbrLancer.toInt();
+	this->nbrFinal = nbrFinal;
 
 	if(nbrFinal == 1) {
 		dh->jet();
@@ -141,7 +142,40 @@ void LancerDe::sendNumberJetClicked()
 
 void LancerDe::showHistoriqueClicked()
 {
-	// ok
-	//ui.tableHistorique->setItem(1, 1, new QTableWidget(dh->getResult());
+	if (this->nbrFinal == 1) {
+
+		// On défini les paramètres du tableau
+		ui.tableHistorique->setRowCount(this->nbrFinal);
+		ui.tableHistorique->setColumnCount(1);
+
+		for (int i = 0; i < 1; i++)
+		{
+
+			for (int j = 0; j < 1; j++)
+			{
+				//Convertir en QString
+				int table = dh->getValeurTable(i);
+
+				ui.tableHistorique->setItem(i, j, new QTableWidgetItem(QString::number(table)));
+			}
+		}
+	}
+	else if (this->nbrFinal > 1) {
+
+		// On défini les paramètres du tableau
+		ui.tableHistorique->setRowCount(this->nbrFinal);
+		ui.tableHistorique->setColumnCount(1);
+
+		for (int i = 0; i < this->nbrFinal; i++)
+		{
+			for (int j = 0; j < 1; j++)
+			{
+				//Convertir en QString
+				int table = dh->getValeurTable(i);
+
+				ui.tableHistorique->setItem(i, j, new QTableWidgetItem(QString::number(table)));
+			}
+		}
+	}
 }
 

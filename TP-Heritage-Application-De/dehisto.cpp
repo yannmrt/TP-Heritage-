@@ -24,3 +24,8 @@ void dehisto::jet(int n)
 		qDebug() << tab[i];
 	}
 }
+
+int dehisto::getValeurTable(int i)
+{
+	return this->tab[i];
+}

@@ -12,5 +12,6 @@ public:
 	dehisto();
 	void jet();
 	void jet(int n);
+	int getValeurTable(int i);
 };
 

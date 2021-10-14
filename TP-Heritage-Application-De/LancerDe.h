@@ -13,6 +13,7 @@ class LancerDe : public QMainWindow
 
 public:
 	LancerDe(QWidget *parent = Q_NULLPTR);
+	int nbrFinal;
 
 private:
 	Ui::LancerDeClass ui;
