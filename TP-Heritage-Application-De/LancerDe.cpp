@@ -32,7 +32,7 @@ LancerDe::LancerDe(QWidget *parent)
 void LancerDe::startDeButtonClicked()
 {
 	// On lance la fonction lancer le dé
-	de->LancerDe();
+	(*de)++;
 }
 
 void LancerDe::showValueDeButtonClicked()
@@ -58,7 +58,7 @@ void LancerDe::showTotalScoreButtonClicked()
 void LancerDe::resetTotalScoreButtonClicked()
 {
 	// On remet à 0 le compteur de score
-	de->resetTotalScore();
+	(*de)=0;
 
 	// On clear la case et on insert le score à 0
 	ui.showTextTotalScoreValue->clear();

@@ -9,27 +9,40 @@ dd::dd() {
 	// On définie les valeurs à 0
 	this->value = 0;
 	this->totalScore = 0;
-	this->result = 0;
+}
+
+dd dd::operator++(int v)
+{
+	LancerDe();
+	return (*this);
+}
+
+dd dd::operator=(int a)
+{
+	resetTotalScore();
+	return (*this);
 }
 
 int dd::LancerDe()
 {
 	// On incorpore la valeur random dans le resultat
-	int random = qrand() % 7;
-	result = random;
+	this->n = QRandomGenerator::global()->bounded(1, 7);
 
 	// On incorpore la valeur de ce lancer dans le score total
-	if (totalScore < 0) {
-		totalScore = result;
-		this->totalScore = totalScore;
-	}
-	else {
-		totalScore = totalScore + result;
+	if (this->totalScore == 0) {
+		this->totalScore = this->n;
+	}else if (this->totalScore > 0) {
+
+		int scoreTotal = this->totalScore;
+		int nDe = this->n;
+		totalScore = scoreTotal + nDe;
 		this->totalScore = totalScore;
 	}
 
-	return result;
+	return n;
 }
+
+
 
 int dd::getTotalScore()
 {
@@ -40,14 +53,13 @@ int dd::getTotalScore()
 int dd::getResult()
 {
 	// On retourne le résultat
-	return this->result;
+	return this->n;
 }
 
 int dd::resetTotalScore()
 {
 	// On remet la variable totalScore à 0
-	int totalScore = 0;
-	this->totalScore = totalScore;
+	this->totalScore = 0;
 	return totalScore;
 }
 
