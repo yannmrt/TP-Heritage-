@@ -62,7 +62,6 @@ dd dd::operator++(int v)
 	return (*this);
 }
 
-// A VERIFIER
 dd dd::operator=(int n)
 {
 	resetTotalScore();
