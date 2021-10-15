@@ -69,6 +69,9 @@ void LancerDe::startDeHistoButtonClicked()
 {
 	// On lance la fonction d'envoi du jet
 	dh->jet();
+
+	// Ajout nbrTotal
+	this->nbrFinal = 1;
 }
 
 void LancerDe::showValueDeHistoButtonClicked()
@@ -131,11 +134,17 @@ void LancerDe::sendNumberJetClicked()
 	int nbrFinal = nbrLancer.toInt();
 	this->nbrFinal = nbrFinal;
 
-	if(nbrFinal == 1) {
-		dh->jet();
+	if (nbrFinal <= 7) {
+
+		if (nbrFinal == 1) {
+			dh->jet();
+		}
+		else if (nbrFinal > 1) {
+			dh->jet(nbrFinal);
+		}
 	}
-	else if (nbrFinal > 1) {
-		dh->jet(nbrFinal);
+	else {
+		ui.textAlert->setText("Vous ne pouvez pas faire plus de 7 tirs.");
 	}
 
 }
@@ -144,17 +153,16 @@ void LancerDe::showHistoriqueClicked()
 {
 	if (this->nbrFinal == 1) {
 
-		// On défini les paramètres du tableau
 		ui.tableHistorique->setRowCount(this->nbrFinal);
 		ui.tableHistorique->setColumnCount(1);
 
 		for (int i = 0; i < 1; i++)
 		{
-
 			for (int j = 0; j < 1; j++)
 			{
-				//Convertir en QString
 				int table = dh->getValeurTable(i);
+
+				qDebug() << table;
 
 				ui.tableHistorique->setItem(i, j, new QTableWidgetItem(QString::number(table)));
 			}
@@ -162,7 +170,6 @@ void LancerDe::showHistoriqueClicked()
 	}
 	else if (this->nbrFinal > 1) {
 
-		// On défini les paramètres du tableau
 		ui.tableHistorique->setRowCount(this->nbrFinal);
 		ui.tableHistorique->setColumnCount(1);
 
@@ -170,7 +177,6 @@ void LancerDe::showHistoriqueClicked()
 		{
 			for (int j = 0; j < 1; j++)
 			{
-				//Convertir en QString
 				int table = dh->getValeurTable(i);
 
 				ui.tableHistorique->setItem(i, j, new QTableWidgetItem(QString::number(table)));

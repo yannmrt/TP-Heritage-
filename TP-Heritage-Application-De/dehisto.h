@@ -5,8 +5,9 @@ class dehisto :
 	public dd
 {
 private:
-	int tab[7];
+	int tab[7]; // Tableau taille 7 maxi
 	int nbrJet = 0;
+	int nbVal;
 
 public:
 	dehisto();

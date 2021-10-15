@@ -2,12 +2,11 @@
 
 dd::dd(int n)
 {
-	this->value = n;
+	this->result = n;
 }
 
 dd::dd() {
 	// On définie les valeurs à 0
-	this->value = 0;
 	this->totalScore = 0;
 }
 
